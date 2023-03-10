@@ -182,7 +182,7 @@ npm init -y
 
 #### 2. node\_modules
 
-node\_modules는 **모듈들을 패키지화하여 모아둔 저장소**입니다.
+**node\_modules**는 **모듈들을 패키지화하여 모아둔 저장소**입니다.
 
 #### 3. npx
 
