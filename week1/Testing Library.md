@@ -1,10 +1,10 @@
-# 4. Testing Library
+# Testing Library
 
 ## 강의노트
 
 ### Jest
 
-#### ![Jest 공식문서](https://jestjs.io/docs/getting-started)
+[Jest 공식문서](https://jestjs.io/docs/getting-started)
 
 #### 기본적인 테스트 코드
 
@@ -38,8 +38,6 @@ describe('add', () => {
 
 ## 학습 키워드
 
-### Jest
-
-### Describe-Context-It 패턴
-
-### React Testing Library
+* Jest
+* Describe-Context-It 패턴
+* React Testing Library
