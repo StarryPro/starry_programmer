@@ -79,7 +79,7 @@ npx tsc --init
 
 ```bash
 npm i -D eslint
-npx esplint --init
+npx eslint --init
 ```
 
 `.eslintrc.js`파일을 적절히 수정합니다.
