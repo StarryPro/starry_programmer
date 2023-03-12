@@ -149,7 +149,7 @@ npm i -D parcel
 ```
 
 또한 위 상태에서 `npm run start`를 하면 에러가 발생하는데, \
-현재 `packsge.json`의 `"main" : "index.js"`를 `"resource" : "index.html"`로 수정하면 에러를 해결할 수 있습니다. 원래 node의 경우 실행 파일을 `"main"` 으로 잡아주는데, 해당 파일에서는 웹 서버를 띄울 것이기 때문에 `"source"`로 변경했습니다.
+현재 `packsge.json`의 `"main" : "index.js"`를 `"source" : "index.html"`로 수정하면 에러를 해결할 수 있습니다. 원래 node의 경우 실행 파일을 `"main"` 으로 잡아주는데, 해당 파일에서는 웹 서버를 띄울 것이기 때문에 `"source"`로 변경했습니다.
 
 ## 학습 키워드
 
