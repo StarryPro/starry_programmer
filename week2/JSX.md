@@ -9,6 +9,8 @@
 
 ### React에서 JSX를 사용하는 이유
 
+**JSX라는 구문 확장자를 통해 렌더링 로직과 마크업이 같은 위치의 React 컴포넌트에 함께 존재할 수 있게 합니다.**
+
 웹은 HTML, CSS, JavaScript를 기반으로 구축되었습니다.
 콘텐츠는 HTML 안에 마크업되고, 페이지 로직은 JavaScript 안에 별도로 존재했습니다.
 하지만 **웹이 더욱 인터랙티브해지면서 로직이 콘텐츠를 결정하는 비중이 점점 커졌고 자바스크립트가 HTML을 담당하게 되었습니다.**
@@ -74,11 +76,7 @@ export default function TodoList() {
         alt='Hedy Lamarr'
         className='photo'
       />
-      <ul>
-        <li>Invent new traffic lights</li>
-        <li>Rehearse a movie scene</li>
-        <li>Improve the spectrum technology</li>
-      </ul>
+      <ul>...</ul>
     </>
   );
 }
@@ -86,9 +84,8 @@ export default function TodoList() {
 
 ### JSX와 중괄호(Curly Braces)
 
-JSX를 사용하면 JavaScript 파일 안에 HTML과 유사한 마크업을 작성하여 렌더링 로직과 콘텐츠를 같은 위치에 유지할 수 있습니다. 때로는 마크업 안에 약간의 자바스크립트 로직을 추가하거나 동적 프로퍼티를 참조하고 싶을 때가 있습니다.
+JSX를 사용하면 JavaScript 파일 안에 HTML과 유사한 마크업을 작성하여 렌더링 로직과 콘텐츠를 같은 위치에 유지할 수 있습니다. JSX 안에서 JavaScript를 사용할 때에는 **중괄호 { }**를 사용해야 합니다.
 
-> JSX에서는 중괄호 { }를 사용하여 그 안에 JavaScript를 사용할 수 있습니다.
 > 중괄호 { }는 JSX 태그 콘텐츠 내부 또는 속성의 = 바로 뒤에서 작동합니다.
 > {{ }}는 특별한 구문이 아니라 JSX 중괄호 안에 들어 있는 JavaScript 객체입니다.
 
@@ -118,13 +115,24 @@ export default function Avatar() {
 ### JSX와 React.createElement
 
 [React 공식 문서](https://reactjs.org/docs/jsx-in-depth.html)에 따르면
-JSX는 **React.createElement(component, props, ...children) 함수에 syntactic sugar을 제공할 뿐**이라고 합니다.
+JSX는 **React.createElement(component, props, ...children) 함수에 [syntatic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)을 제공할 뿐**이라고 합니다.
 
-[React.createElement](https://beta.reactjs.org/reference/react/createElement)는 React element를 생성할 수 있으며, JSX 대신에 사용할 수 있습니다. **JSX 코드는 React.createElemet JS 코드로 컴파일됩니다.**
+> syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express.
+
+[React.createElement](https://beta.reactjs.org/reference/react/createElement)는 React element를 생성할 수 있으며, JSX 대신에 사용할 수 있습니다.
+**JSX 코드는 자바스크립트 컴파일러인 @babel을 통해서 React.createElemet JS 코드로 변환됩니다.**
 
 ```javascript
 const element = createElement(type, props, ...children);
 ```
+
+### .ts vs .tsx
+
+타입스크립트의 경우 `.ts`와 `.tsx` 확장자를 사용합니다.
+`.tsx`에서는 JSX를 사용할 수 있지만 `.ts`는 JSX 사용이 불가능 합니다.
+반대로, JSX 코드는 JS 코드로 변환되기 때문에 `.js`와 `.jsx`확장자에서는 모두 JSX 사용이 가능하지만
+JSX 코드는 엄밀히 말하면 표준 JavaScript가 아니기 때문에 `.js`에서 JSX 사용은 추천하지 않습니다.
+[](https://stackoverflow.com/questions/46169472/reactjs-js-vs-jsx)
 
 - 예시 1.
 
