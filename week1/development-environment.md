@@ -117,9 +117,9 @@ npm i -D jest @types/jest @swc/core @swc/jest \
 
 [jest.config.js 파일](https://github.com/ahastudio/CodingLife/blob/main/20220726/react/jest.config.js)을 작성해서 테스트 시 `SWC`를 사용할 수 있게 합니다. `setupFilesAfterEnv`의 내용 중 `./jest.setup`은 삭제합니다.
 
-*   [SWC(Speedy Web Compiler)](https://swc.rs/)란?
+- [SWC(Speedy Web Compiler)](https://swc.rs/)란?
 
-    > SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
+  > SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
 
 #### 10. `Parcel`을 설치합니다
 
@@ -127,10 +127,10 @@ npm i -D jest @types/jest @swc/core @swc/jest \
 npm i -D parcel
 ```
 
-*   `Parcel`이란?
+- `Parcel`이란?
 
-    Parcel은 **특별한 설정 없이 바로 사용 가능한 빌드 도구**입니다. \
-    내부적으로 `SWC`를 사용해서 기존 도구들보다 빠릅니다.
+  Parcel은 **특별한 설정 없이 바로 사용 가능한 빌드 도구**입니다. \
+  내부적으로 `SWC`를 사용해서 기존 도구들보다 빠릅니다.
 
 #### 11. `package.json` 파일의 scripts 내용을 수정합니다.
 
@@ -180,9 +180,9 @@ npm init -y
 
 **package.json에서 설치한 모듈의 `dependencies`들을 상세하게 명시해 놓은 곳**입니다.
 
-#### 2. node\_modules
+#### 2. node_modules
 
-**node\_modules**는 **모듈들을 패키지화하여 모아둔 저장소**입니다.
+**node_modules**는 **모듈들을 패키지화하여 모아둔 저장소**입니다.
 
 #### 3. npx
 
@@ -190,7 +190,8 @@ npm init -y
 
 ## 참고 자료
 
-* [\[NODE\] 📚 npm(node package manager) 완벽 정리](https://inpa.tistory.com/entry/NODE-%F0%9F%93%9A-%EB%85%B8%EB%93%9C-npmnode-package-manager)
-* [모듈화와 npm(node package manager)](https://poiemaweb.com/nodejs-npm)
-* &#x20;[Node.js의 module loading system](https://poiemaweb.com/nodejs-module)&#x20;
-* [npm 과 npx 차이](https://hanamon.kr/npm-npx-%EC%B0%A8%EC%9D%B4/)
+- [React 프로젝트 시작하기](https://github.com/ahastudio/til/blob/main/react/20230205-setup-react-project.md)
+- [\[NODE\] 📚 npm(node package manager) 완벽 정리](https://inpa.tistory.com/entry/NODE-%F0%9F%93%9A-%EB%85%B8%EB%93%9C-npmnode-package-manager)
+- [모듈화와 npm(node package manager)](https://poiemaweb.com/nodejs-npm)
+- &#x20;[Node.js의 module loading system](https://poiemaweb.com/nodejs-module)&#x20;
+- [npm 과 npx 차이](https://hanamon.kr/npm-npx-%EC%B0%A8%EC%9D%B4/)
