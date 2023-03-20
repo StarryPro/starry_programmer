@@ -4,7 +4,7 @@
 
 ### 브라우저 렌더링 과정
 
-[](/images/browswer-rendering.png)
+![](/images/browswer-rendering.png)
 사용자가 브라우저를 통해 웹 사이트에 접속하면 브라우저는 서버로부터 HTML, CSS, JavaScript와 같은 웹 사이트에 필요한 리소스를 다운 받습니다.
 이후 브라우저 렌더링 과정은 아래와 같습니다.
 
@@ -39,6 +39,6 @@ UI에 새 요소가 추가되면 트리로 표시되는 가상 DOM이 생성됩�
 
 이 작업이 완료되면 가상 DOM은 실제 DOM에 이러한 변경 사항을 적용하기 위해 가능한 최선의 방법을 계산합니다. 이렇게 하면 실제 DOM에서 최소한의 작업만 수행됩니다. 따라서 실제 DOM을 업데이트하는 데 드는 성능 비용을 줄일 수 있습니다.
 
-[](/images/virtualDOM.png)
+![](/images/virtualDOM.png)
 
 ### 재조정(reconciliation)이란?
