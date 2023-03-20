@@ -19,3 +19,5 @@
 
 
 - [알고리즘](algorism/main.md)
+
+  - [해시 테이블](/algorism/hash.md)
