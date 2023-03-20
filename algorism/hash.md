@@ -2,12 +2,12 @@
 
 해시 테이블은 한정된 배열 공간에 key를 index로 변환하여 값들을 넣게 됩니다. \
 그렇다면 index는 어떻게 구하는 걸까요?\
-![](../.gitbook/assets/array.png)
+![](/images/array.png)
 
 ## 해시 테이블이란?
 
 키와 값을 받아 키를 해싱(Hashing)하여 나온 index에 값을 저장하는 선형 자료구조 삽입은 O(1)이며 키를 알고 있다면, 삭제, 탐색도 O(1)로 수행합니다.\
-![](../.gitbook/assets/hash-table.png)
+![](/images/hash-table.png)
 
 ## 해시 함수란?
 
