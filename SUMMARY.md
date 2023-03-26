@@ -18,8 +18,9 @@
   - [Virtual](week2/VirtualDOM.md)
 
 - [3주차 React로 사고하기](week3/main.md)
-  - [React Component](week3/ReactComponent.md)
 
+  - [React Component](week3/ReactComponent.md)
+  - [React State](week3/ReactState.md)
 
 - [알고리즘](algorism/main.md)
 
