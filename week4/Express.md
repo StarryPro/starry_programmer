@@ -135,24 +135,23 @@ REST API는 **웹에서 사용되는 데이터나 자원(Resource)을 HTTP URI�
 
 REST API를 작성할 때는 몇가지 지켜야 할 규칙들이 있습니다. 로이 필딩이 논문에서 제시한 REST 방법론을 보다 더 실용적으로 적용하기 위해 [레오나르드 리차드슨](https://martinfowler.com/articles/richardsonMaturityModel.html)은 REST API를 잘 적용하기 위한 4단계 모델을 만들었습니다.
 
-로이 필딩은 이 모델의 모든 단계를 충족해야 REST API라고 부를 수 있다고 주장했습니다.
+로이 필딩은 이 모델의 모든 단계를 충족해야 REST API라고 부를 수 있다고 주장했습니다.\
 그러나 실제로 엄밀하게 3단계까지 지키기 어렵기 때문에 2단계까지만 적용해도 좋은 API 디자인이라고 볼 수 있고, 이런 경우를 HTTP API라고도 부릅니다.
 
-- REST 성숙도 모델 - 0단계
+- REST 성숙도 모델 - 0단계\
   0단계에서는 단순히 HTTP 프로토콜을 사용하기만 해도 됩니다. 해당 API를 REST API라고 할 수는 없으며, 0단계는 REST API를 작성하기 위한 기본 단계입니다.
 
-- REST 성숙도 모델 - 1단계
+- REST 성숙도 모델 - 1단계\
   1단계에서는 개별 리소스(Resource)와의 통신을 준수해야 합니다.\
   앞서 **REST API는 웹에서 사용되는 모든 데이터나 자원(source)을 HTTP URI로 표현**한다고 언급했습니다.
   따라서 모든 자원은 개별 리소스에 맞틑 앤드포인트(Endpoint)를 사용해야하며 요청하고 받는 자원에 대한 정보를 응답으로 전달해야 한다는 것이 핵심입니다.\
   엔드포인트 작성 시에는 동사, HTTP 메서드, 혹은 어떤 행위에 대한 단어 사용은 지양하고, 리소스에 집중해 명사 형태의 단어로 작성하는 것이 바람직한 방법입니다.
 
-- REST 성숙도 모델 - 2단계
-  2단계에서는 CRUD에 맞게 적절한 HTTP 메서드를 사용하는 것에 중점을 둡니다.
+- REST 성숙도 모델 - 2단계\
+  2단계에서는 CRUD에 맞게 적절한 HTTP 메서드를 사용하는 것에 중점을 둡니다.\
 
-  - 예시
-    기본 리소스 URL:/products
-    Collection은 복수 리소스, Item(Element)는 단수 리소스를 의미합니다.
+  기본 리소스 URL:/products\
+  Collection은 복수 리소스, Item(Element)는 단수 리소스를 의미합니다.
 
   1. Read(Collection) -> GET/products => 상품 목록 확인
   2. Read(Item) -> GET/products/{id} => 특정 상품 정보 확인
@@ -160,7 +159,7 @@ REST API를 작성할 때는 몇가지 지켜야 할 규칙들이 있습니다. 
   4. Update(Item) -> PUT 또는 PATCH/products/{id} => 특정 상품 정보 변경(JSON 정보 함께 전달)
   5. Delete(Item) -> DELETE/products/{id} => 특정 상품 삭제
 
-- REST 성숙도 모델 - 3단계
+- REST 성숙도 모델 - 3단계\
   마지막 단계는 HATEOAS(Hypermedia As The Engine Of Application State)라는 약어로 표현되는 하이퍼미디어 컨트롤을 적용합니다.\
   3단계의 요청은 2단계와 동일하지만, 응답에는 리소스의 URI를 포함한 **링크** 요소를 삽입하여 작성해야 합니다.
 
