@@ -43,6 +43,23 @@ const data = JSON.parse(body);
 // JSON.parse는 JSON 문자열을 JavaScript 값 또는 객체로 변환합니다.
 ```
 
+- response 객체는 json() 메서드를 지원합니다.
+  response 객체의 json() 메서드는 응답 스트림을 가져와서 완료될 때까지 읽습니다.\
+  본문 텍스트를 JSON으로 구문 분석한 결과와 함께 프로미스를 반환합니다.
+
+```javascript
+const response = await fetch('http://localhost:3000/products');
+const data = await response.json();
+```
+
+- 다른 HTTP Method를 사용하고 싶다면 fetch의 두 번째 매개변수를 이용합니다.
+
+```javascript
+const response = fetch(url, {
+  method: 'POST',
+});
+```
+
 ## Promise
 
 Promise는 JavaScript의 [표준 내장 객체](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects)로서 제어 추상화 객체 항목에 속합니다.\
@@ -248,6 +265,42 @@ Unicode Transformation Format - 8bit의 약어로서 8의미는 8비트(1바이�
 사용하는 변환 형식도 UTF-8을 사용합니다.
 
 ## CORS 란
+
+### [동일 출처 정책(SOP)](https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy)
+
+웹 브라우저는 동일 출처 정책(Same Origin Policy, SOP)에 따라 웹 페이지와 리소스를 요청한 곳이 서로 다른 [출처](https://developer.mozilla.org/ko/docs/Glossary/Origin)일 때 서버에서 얻은 결과를 사용할 수 없게 막습니다.\ 이때, 서버에 요청하고 응답을 받아오는 것까지는 이미 다 진행된 상태이고 브라우저에서 사용을 막는 상황입니다.
+
+> 출처는 URL의 scheme(프로토콜), hosts(도메인), port로 구성됩니다.
+
+### [교차 출처 리소스 공유(CORS)](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)
+
+교차 출처 리소스 공유(Cross-Origin Resource Sharing, CORS)는 추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제입니다.\
+CORS 체제는 브라우저와 서버 간의 안전한 교차 출처 요청 및 데이터 전송을 지원합니다.
+
+**Fetch API는 동일 출처 정책을 따릅니다.** \즉, 이 API를 사용하는 웹 애플리케이션은 자신의 출처와 동일한 리소스만 불러올 수 있으며, 다른 출처의 리소스를 불러오려면 그 출처에서 올바른 CORS 헤더를 포함한 응답을 반환해야 합니다.\
+
+- [Access-Control-Allow-Origin](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) 은 단일 출처를 지정하여 브라우저가 해당 출처가 리소스에 접근하도록 허용합니다. 또는 자격 증명이 없는 요청의 경우 "\*" 와일드 카드는 브라우저의 origin에 상관없이 모든 리소스에 접근하도록 허용합니다.
+
+### [CORS 미들웨어](https://expressjs.com/en/resources/middleware/cors.html)
+
+Express에서는 CORS 미들웨어를 설치해서 사용할 수 있습니다.
+
+- 패키지 설치
+
+```bash
+npm i cors
+npm i -D @types/cors
+```
+
+- CORS 미들웨어 사용 예시
+
+```javascript
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
+```
 
 ## 참조 자료
 
