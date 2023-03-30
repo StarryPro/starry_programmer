@@ -1,4 +1,4 @@
-# useRef & customHook
+# useRef & Custom Hook
 
 ## [useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
 
