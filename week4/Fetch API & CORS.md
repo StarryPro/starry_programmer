@@ -43,9 +43,8 @@ const data = JSON.parse(body);
 // JSON.parse는 JSON 문자열을 JavaScript 값 또는 객체로 변환합니다.
 ```
 
-- response 객체는 json() 메서드를 지원합니다.
-  response 객체의 json() 메서드는 응답 스트림을 가져와서 완료될 때까지 읽습니다.\
-  본문 텍스트를 JSON으로 구문 분석한 결과와 함께 프로미스를 반환합니다.
+- response 객체는 json() 메서드를 지원합니다.\
+  response 객체의 json() 메서드는 본문 텍스트를 JSON으로 구문 분석한 결과와 함께 프로미스를 반환합니다.
 
 ```javascript
 const response = await fetch('http://localhost:3000/products');
@@ -309,3 +308,4 @@ app.use(cors());
 - [TextDecoder & TextEncoder](https://ko.javascript.info/text-decoder)
 - [인코딩 vs 디코딩 정확하게 이해하기](https://codingpractices.tistory.com/entry/%EC%9D%B8%EC%BD%94%EB%94%A9-vs-%EB%94%94%EC%BD%94%EB%94%A9-%EC%A0%95%ED%99%95%ED%95%98%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 - [JSON.parse](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+- [async와 await](https://ko.javascript.info/async-await)
