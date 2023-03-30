@@ -2,8 +2,11 @@
 
 ## [useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
 
-[React Beta 문서](https://react.dev/reference/react/useRef)에 따르면 useRef란 렌더링에 필요하지 않는 값을 참조할 수 있는 React Hook입니다.\
-`const refContainer = useRef(initialValue);`
+```javascript
+const refContainer = useRef(initialValue);
+```
+
+[React Beta 문서](https://react.dev/reference/react/useRef)에 따르면 useRef란 렌더링에 필요하지 않는 값을 참조할 수 있는 React Hook입니다. \
 useRef는 .current 프로퍼티로 전달된 인자(initialValue)로 초기화된 변경 가능한 ref 객체를 반환합니다.\
 반환된 객체는 컴포넌트의 전 생애주기를 통해 유지됩니다. 즉, 컴포넌트가 없어질 때까지 동일한 객체가 유지됩니다.\
 또한 상태(state)가 변경되면 해당 컴포넌트와 하위 컴포넌트를 다시 렌더링하지만, 레퍼런스 객체의 현재 값(current)이 바뀌더라도 렌더링에 영향을 주지 않습니다.
@@ -25,7 +28,7 @@ useEffect(() => {
 // 초기 값인 빈 문자열 나옵니다.
 ```
 
-- useRef 적용
+* useRef 적용
 
 ```typescript
 const query = useRef('');
@@ -49,7 +52,7 @@ useEffect(() => {
 로직을 재사용하기 위한 제일 쉬운 방법으로써 평범하게 Extract Function을 수행하면 됩니다.\
 컴포넌트가 대문자로 시작하는 PascalCase로 이름을 붙인다면, Hook은 "use"로 시작하는 camelCase로 이름을 붙이면 됩니다.
 
-- app.tsx
+* app.tsx
 
 ```typescript
 import FilterableProductTable from './component/FilterableProductTable';
@@ -68,7 +71,7 @@ export default function App() {
 }
 ```
 
-- hooks/useFetchProducts.ts
+* hooks/useFetchProducts.ts
 
 ```typescript
 import { useEffect, useState } from 'react';
@@ -91,7 +94,7 @@ export default function useFetchProducts() {
 }
 ```
 
-- components/FilterableProductTable.ts
+* components/FilterableProductTable.ts
 
 ```typescript
 export default function FilterableProductTable({
@@ -119,7 +122,7 @@ export default function FilterableProductTable({
 }
 ```
 
-- hooks/useProductsFilter.ts
+* hooks/useProductsFilter.ts
 
 ```typescript
 import { useState } from 'react';
@@ -148,7 +151,6 @@ export default function useProductsFilter(products: Product[]) {
 ## [Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html)
 
 1. 최상위 레벨에서만 Hook을 호출해야 합니다.
-
 2. Function Component 또는 Custom Hook에서만 호출해야 합니다.
 
 처음에는 콜백 함수나 조건문 안에서 Hook을 호출하는 실수를 저지르기 쉽습니다.

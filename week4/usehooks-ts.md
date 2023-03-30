@@ -18,12 +18,18 @@ npm i usehooks-ts
 
 ### [useFetch](https://usehooks-ts.com/react-hook/use-fetch)
 
-네이티브 Fetch API를 사용하여 API에서 데이터를 검색하는 것을 목표로 하는 React Hook입니다.\
+네이티브 Fetch API를 사용하여 API에서 데이터를 검색하는 것을 목표로 하는 React Hook입니다.
 
 ### [useInterval](https://usehooks-ts.com/react-hook/use-interval)
 
-React에서 setInterval 등을 사용할 때는 주의해야 할 부분이 있어서 custom Hook을 만들어서 해결해야 합니다.
-![youtube 해설 영상](https://www.youtube.com/watch?v=2tUdyY5uBSw)
+React에서 setInterval 등을 사용할 때는 주의해야 할 부분이 있어서 custom Hook을 만들어서 해결해야 합니다.&#x20;
+
+{% embed url="https://www.youtube.com/watch?v=2tUdyY5uBSw" %}
+[React에서의 타이머 part 1 : setInterval 말고 이것! - 코드종님 영상](https://youtu.be/2tUdyY5uBSw)
+{% endembed %}
+
+\
+
 
 ### [useEventListener](https://usehooks-ts.com/react-hook/use-event-listener)
 
