@@ -1,6 +1,6 @@
 # Express
 
-## Express&#x20;
+## 1. Express&#x20;
 
 ### [Express](https://expressjs.com/ko/)
 
@@ -92,7 +92,7 @@ npm i -D nodemon
 npx nodemon app.ts
 ```
 
-## URL 구조
+## 2. URL 구조
 
 브라우저 주소창에 입력한 URL은 서버가 제공되는 환경에 존재하는 파일의 위치를 나타냅니다. 슬래시(`/`)를 이용해 서버의 폴더에 진입하거나 파일을 요청할 수 있습니다.\
 
@@ -120,7 +120,7 @@ fragment는 일종의 북마크 기능을 수행하며 URL에 fragment(#)와 특
 | `/search`, `/Users/username/Desktop` | url-path | 웹 서버의 루트 디렉토리로부터 웹 페이지, 이미지, 동영상 등의 파일이 위치까지의 경로 |
 | `q=JavaScript`                       | query    | 웹 서버에 전달하는 추가 질문                                 |
 
-## REST API
+## 3. REST API
 
 ### REST API란 무엇인가?
 
