@@ -1,8 +1,6 @@
 # 개발환경
 
-## 강의 노트
-
-### JavaScript 개발 환경(Node.js) 세팅
+## JavaScript 개발 환경(Node.js) 세팅
 
 제가 사용하고 있던 Node.js version은 `v16.15.1`이었습니다.\
 현재 기준으로 `v18.14.2 LTS`의 Node.js version으로 세팅하려 합니다.\
@@ -27,24 +25,25 @@ fnm list
 fnm default $(fnm current)
 ```
 
-### TypeScript + React + Jest + ESLint + Parcel 개발 환경 세팅
+## TypeScript + React + Jest + ESLint + Parcel 개발 환경 세팅
 
-#### 1. 먼저 적절한 작업 폴더를 준비합니다.
+### 1. 작업 폴더를 생성한 후 해당 폴더로 이동합니다.
 
 ```bash
 mkdir my-app
 cd my-app
 ```
 
-#### 2. npm 패키지를 준비합니다.
+### 2. npm 패키지를 생성합니다.
 
 npm 패키지를 준비하는 게 첫 번째 작업입니다.
 
 ```bash
+// -y를 통해서 기본 설정값으로 생성
 npm init -y
 ```
 
-#### 3. `.gitignore` 파일을 작성합니다.
+### 3. `.gitignore` 파일을 추가합니다.
 
 `node_modules`와 같은 파일들을 commit 하지 않도록 `.gitignore` 파일을 통해 방지할 수 있습니다.
 
@@ -56,7 +55,7 @@ npm init -y
 
 위 3개의 파일은 반드시 `.gitignore` 파일에 넣어줘야하고, github에서 기본으로 제공하는 [.gitignore 파일](https://github.com/github/gitignore/blob/main/Node.gitignore)을 주로 사용합니다.
 
-#### 4. TypeScript를 설정합니다.
+### 4. TypeScript를 세팅합니다.
 
 ```bash
 npm i -D typescript
@@ -75,37 +74,163 @@ npx tsc --init
 
 `npx tsc --init`에서 **tsc**는 TypeScript Compiler의 약어이고, **npx**는 npm에서 제공하는 도구로서 로컬에 설치된 모듈을 간편하게 실행시킬 수 있고, 로컬에 해당 모듈이 없다면 임시 설치해서 실행시킬 수 있습니다. `./node_modules/.bin/tsc`와 `npx tsc`은 동일합니다.
 
-#### 5. ESLint를 설정합니다.
+### 5. ESLint를 세팅합니다.
 
 ```bash
 npm i -D eslint
 npx eslint --init
 ```
 
-`.eslintrc.js`파일을 적절히 수정합니다.
+`ESLint` 세팅 시 나오는 질문 및 답변은 다음과 같습니다.
 
-<pre class="language-json"><code class="lang-json"><strong>env: {
-</strong>	browser: true,
-<strong>	es2021: true,
-</strong>	jest: true,
-},
-extends: ['plugin:react/recommended', 'plugin:react/jsx-runtime', 'xo'],
-</code></pre>
+```bash
+How would you like to use ESLint?
+❯ To check syntax, find problems, and enforce code style
+What type of modules does your project use?
+❯ JavaScript modules (import/export)
+Which framework does your project use?
+❯ React
+Does your project use TypeScript?
+❯ Yes
+Where does your code run?
+❯ Browser
+How would you like to define a style for your project?
+❯ Use a popular style guide
+Which style guide do you want to follow?
+❯ XO: https://github.com/xojs/eslint-config-xo-typescript
+What format do you want your config file to be in?
+❯ JavaScript
+Would you like to install them now?
+❯ Yes
+Which package manager do you want to use?
+❯ npm
+```
 
-아직 Jest를 설치하지 않았지만, 미리 `jest: true`를 잡아주면 좋습니다.
+style guide는 현재 가장 많이 사용하는 `airbnb` style guide를 적용하고자 합니다.
 
-#### 6. `.eslintignore` 파일을 작성합니다
+```bash
+// XO style guide 제거
+npm uninstall eslint-config-xo \
+    eslint-config-xo-typescript
 
-`.eslintignore` 파일 내용은 `.gitignore` 파일과 동일하게 작성했습니다.
+// airbnb style guide 설치
+npm i -D eslint-config-airbnb \
+    eslint-plugin-import \
+    eslint-plugin-react \
+    eslint-plugin-react-hooks \
+    eslint-plugin-jsx-a11y
+```
 
-#### 7. React를 설치합니다
+- `.eslintrc.js` 파일을 적절히 수정합니다.
+
+```bash
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: [
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+  rules: {
+    indent: ['error', 2],
+    'no-trailing-spaces': 'error',
+    curly: 'error',
+    'brace-style': 'error',
+    'no-multi-spaces': 'error',
+    'space-infix-ops': 'error',
+    'space-unary-ops': 'error',
+    'no-whitespace-before-property': 'error',
+    'func-call-spacing': 'error',
+    'space-before-blocks': 'error',
+    'keyword-spacing': ['error', { before: true, after: true }],
+    'comma-spacing': ['error', { before: false, after: true }],
+    'comma-style': ['error', 'last'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'space-in-parens': ['error', 'never'],
+    'block-spacing': 'error',
+    'array-bracket-spacing': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
+    'key-spacing': ['error', { mode: 'strict' }],
+    'arrow-spacing': ['error', { before: true, after: true }],
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: [
+        '**/*.test.js',
+        '**/*.test.jsx',
+        '**/*.test.ts',
+        '**/*.test.tsx',
+      ],
+    }],
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      jsx: 'never',
+      ts: 'never',
+      tsx: 'never',
+    }],
+    'react/jsx-filename-extension': [2, {
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }],
+    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+  },
+};
+```
+
+### 6. `.eslintignore` 파일을 추가합니다
+
+`.eslintignore` 파일 내용은 `.gitignore` 파일과 동일하게 작성해줍니다.
+
+### 7. `VS Code 설정 파일`을 생성합니다
+
+- `.vscode` 폴더 생성 후 하위에 `setting.json` 파일을 생성합니다.
+
+```bash
+mkdir .vscode
+touch .vscode/settings.json
+```
+
+- 아래 내용을 세팅해서 파일 저장시 자동으로 lint 실행 및 fix 하도록 합니다.
+
+```json
+{
+  // 80 column에서 줄 긋기
+  "editor.rulers": [80],
+  // 저장 시 자동으로 fix하기
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // 저장 시 필요없는 spaces 줄여주기
+  "trailing-spaces.trimOnSave": true
+}
+```
+
+### 8. React를 설치합니다
 
 ```bash
 npm i react react-dom
 npm i -D @types/react @types/react-dom
 ```
 
-#### 8. 테스팅 도구를 설치합니다
+### 9. 테스팅 도구를 설치합니다
 
 ```bash
 npm i -D jest @types/jest @swc/core @swc/jest \
@@ -113,7 +238,21 @@ npm i -D jest @types/jest @swc/core @swc/jest \
     @testing-library/react @testing-library/jest-dom
 ```
 
-#### 9. `jest.config.js` 파일을 작성합니다
+`테스팅 도구` 설치 내용은 다음과 같습니다.
+
+1. Jest 및 SWC 지원 패키지 설치
+
+```bash
+npm i -D jest @types/jest @swc/core @swc/jest
+```
+
+2.React Testing Library 세팅
+
+```bash
+npm i -D jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+```
+
+### 10. `jest.config.js` 파일을 작성합니다
 
 [jest.config.js 파일](https://github.com/ahastudio/CodingLife/blob/main/20220726/react/jest.config.js)을 작성해서 테스트 시 `SWC`를 사용할 수 있게 합니다. `setupFilesAfterEnv`의 내용 중 `./jest.setup`은 삭제합니다.
 
@@ -121,7 +260,43 @@ npm i -D jest @types/jest @swc/core @swc/jest \
 
   > SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
 
-#### 10. `Parcel`을 설치합니다
+`setupFilesAfterEnv`의 내용 중 `./jest.setup`은 삭제합니다.
+
+```bash
+module.exports = {
+  testEnvironment: 'jsdom',
+
+  // React Testing Library 관련 설정(setupFilesAfterEnv)
+  setupFilesAfterEnv: [
+    '<rootDir>/src/setupTests.ts',
+  ],
+
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        parser: {
+          syntax: 'typescript',
+          jsx: true,
+
+          // React Testing Library 관련 설정(decorators)
+          decorators: true,
+
+        },
+        transform: {
+          react: {
+            runtime: 'automatic',
+          },
+          // React Testing Library 관련 설정(legacyDecorator, decoratorMetadata)
+          legacyDecorator: true,
+          decoratorMetadata: true,
+        },
+      },
+    }],
+  },
+};
+```
+
+### 11. `Parcel`을 설치합니다
 
 ```bash
 npm i -D parcel
@@ -132,7 +307,26 @@ npm i -D parcel
   Parcel은 **특별한 설정 없이 바로 사용 가능한 빌드 도구**입니다. \
   내부적으로 `SWC`를 사용해서 기존 도구들보다 빠릅니다.
 
-#### 11. `package.json` 파일의 scripts 내용을 수정합니다.
+- 추천하는 설정 작업
+
+  - `package.json` 파일에 source 속성 추가
+
+  ```json
+  "source" : "./index.html"
+  ```
+
+  - `parcel-reporter-static-files-copy` 패키지를 설치 후 `.parcelrc` 파일을 작성합니다.
+    <https://github.com/elwin013/parcel-reporter-static-files-copy>
+    아래 설정을 통해서 static 폴더의 파일을 정적 파일로 Serving할 수 있습니다.(이미지 등 Assets)
+
+```json
+{
+  "extends": ["@parcel/config-default"],
+  "reporters": ["...", "parcel-reporter-static-files-copy"]
+}
+```
+
+### 12. `package.json` 파일의 scripts 내용을 수정합니다.
 
 아래의 [scripts](https://github.com/ahastudio/CodingLife/blob/main/20220726/react/package.json) 내용을 참고하여 수정합니다.
 
@@ -141,7 +335,9 @@ npm i -D parcel
     "start": "parcel --port 8080",
     "build": "parcel build",
     "check": "tsc --noEmit",
+    // lint 관련 설정
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    // jest 관련 설정
     "test": "jest",
     "coverage": "jest --coverage --coverage-reporters html",
     "watch:test": "jest --watchAll"
@@ -150,6 +346,52 @@ npm i -D parcel
 
 또한 위 상태에서 `npm run start`를 하면 에러가 발생하는데, \
 현재 `packsge.json`의 `"main" : "index.js"`를 `"source" : "index.html"`로 수정하면 에러를 해결할 수 있습니다. 원래 node의 경우 실행 파일을 `"main"` 으로 잡아주는데, 해당 파일에서는 웹 서버를 띄울 것이기 때문에 `"source"`로 변경했습니다.
+
+### 13. React 기본 코드를 작성합니다
+
+1. `index.html` 파일 작성
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Demo App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>
+```
+
+2.`src/main.tsx` 파일 작성
+
+```typescript
+import ReactDOM from 'react-dom/client';
+
+import App from './App';
+
+function main() {
+  const element = document.getElementById('root');
+  if (!element) {
+    return;
+  }
+
+  const root = ReactDOM.createRoot(element);
+  root.render(<App />);
+}
+
+main();
+```
+
+3.`src/App.tsx` 파일 작성
+
+```typescript
+export default function App() {
+  return <p>Hello, world!</p>;
+}
+```
 
 ## 학습 키워드
 
@@ -195,3 +437,4 @@ npm init -y
 - [모듈화와 npm(node package manager)](https://poiemaweb.com/nodejs-npm)
 - &#x20;[Node.js의 module loading system](https://poiemaweb.com/nodejs-module)&#x20;
 - [npm 과 npx 차이](https://hanamon.kr/npm-npx-%EC%B0%A8%EC%9D%B4/)
+- [Eslint, Prettier 설정하기](https://helloinyong.tistory.com/325)
