@@ -108,3 +108,4 @@ export default function useForceUpdate() {
 ## 참고 자료
 
 - [계층화 아키텍처 (Layered Architecture)](https://hudi.blog/layered-architecture/)
+- [Flux와 Redux](https://taegon.kim/archives/5288)
