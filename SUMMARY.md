@@ -2,7 +2,7 @@
 
 * [소개](README.md)
 
-## 주차별 키워드 정리 및 데브 노트
+## 주제별 키워드 정리 및 데브 노트
 
 * [프론트엔드 개발 환경](week1/main.md)
   * [개발환경](week1/development-environment.md)
