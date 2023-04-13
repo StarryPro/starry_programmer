@@ -1,6 +1,6 @@
 # External Store
 
-## [관심사의 분리](https://ko.wikipedia.org/wiki/%EA%B4%80%EC%8B%AC%EC%82%AC_%EB%B6%84%EB%A6%AC)
+## [관심사의 분리](https://ko.wikipedia.org/wiki/%EA%B4%80%EC%8B%AC%EC%82%AC\_%EB%B6%84%EB%A6%AC)
 
 하나의 시스템은 작은 부품이 모여서 만들어집니다. 우리는 이미 작은 컴포넌트를 합쳐서 더 큰 컴포넌트를 만드는 방식으로 개발하고 있습니다.
 
@@ -15,7 +15,7 @@ Layered Architecture에서는 사용자에게 가까운 것과 사용자에게�
 
 프로세스 관점에서도 관심사 분리를 할 수 있습니다.\
 Input -> Process -> Output 3단계로 적절히 구분만 해도 코드를 이해하고 유지 보수하는데 큰 도움이 됩니다.\
-하나의 Output은 다시 사용자에게 Input을 요청하게 되고, 일반적인 프로그램은 다음과 같이 계속 순환하는 구조가 됩니다.\
+하나의 Output은 다시 사용자에게 Input을 요청하게 되고, 일반적인 프로그램은 다음과 같이 계속 순환하는 구조가 됩니다.
 
 1. Input: 프로그램 시작
 2. Process: 프로그램 초기화
@@ -47,11 +47,12 @@ Redux는 단일 Store를 사용함으로써 좀 더 단순한 그림을 제안�
 3. View → State를 반영.
 
 ### External Store
+
 React에서는 특별히 쓰이지 않는 상태라고 해도 "상태가 바뀌면" 해당 컴포넌트와 하위 컴포넌트를 다시 렌더링합니다.\
-[forceUpdate와 같은 것이 있습니까?](https://ko.reactjs.org/docs/hooks-faq.html#is-there-something-like-forceupdate)의 공식 문서에서의 접근법처럼 React가 UI를 담당하고 순수한 TypeScript(또는 JavaScript)가 비즈니스 로직을 담당하는 관심사의 분리(Separation of Concerns)를 명확히 할 수 있습니다./
+[forceUpdate와 같은 것이 있습니까?](https://ko.reactjs.org/docs/hooks-faq.html#is-there-something-like-forceupdate)의 공식 문서에서의 접근법처럼 React가 UI를 담당하고 순수한 TypeScript(또는 JavaScript)가 비즈니스 로직을 담당하는 관심사의 분리(Separation of Concerns)를 명확히 할 수 있습니다.\
 이를 통해 자주 바뀌는 UI 요소에 대한 테스트 대신 오래 유지되는(바뀌면 치명적인)비즈니스 로직에 대한 테스트 코드를 작성해 유지 보수에 도움이 되는 테스트 코드를 치밀하게 작성할 수 있습니다.
 
-- Counter.tsx
+* Counter.tsx
 
 ```typescript
 import useForceUpdate from "../hooks/useForceUpdate";
@@ -86,7 +87,7 @@ export default function Counter() {
 }
 ```
 
-- useForceUpdate.tsx
+* useForceUpdate.tsx
 
 ```typescript
 import { useCallback, useState } from "react";
@@ -103,9 +104,10 @@ export default function useForceUpdate() {
 ## [useCallback](https://react.dev/reference/react/useCallback)
 
 ### [React Hooks: useCallback 사용법](https://www.daleseo.com/react-hooks-use-callback/)
+
 ### [useCallback 을 사용하여 함수 재사용하기](https://react.vlpt.us/basic/18-useCallback.html)
 
 ## 참고 자료
 
-- [계층화 아키텍처 (Layered Architecture)](https://hudi.blog/layered-architecture/)
-- [Flux와 Redux](https://taegon.kim/archives/5288)
+* [계층화 아키텍처 (Layered Architecture)](https://hudi.blog/layered-architecture/)
+* [Flux와 Redux](https://taegon.kim/archives/5288)
