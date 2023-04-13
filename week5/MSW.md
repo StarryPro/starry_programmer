@@ -122,3 +122,8 @@ MSW는 테스트 환경(Node.js 기반) 외에 웹 브라우저도 지원하기 
 
 [polyfill](https://developer.mozilla.org/ko/docs/Glossary/Polyfill)은 기본적으로 지원하지 않는 이전 브라우저에서 최신 기능을 제공하는 데 필요한 코드 (일반적으로 웹의 JavaScript)입니다.\
 fetch polyfill은 fetch 기능을 수행하지 못하는 브라우저에서 fetch를 사용할 수 있도록 해주는 코드입니다.
+
+
+## 참고 자료
+
+- [똑똑하게 브라우저 Polyfill 관리하기](https://toss.tech/article/smart-polyfills)
