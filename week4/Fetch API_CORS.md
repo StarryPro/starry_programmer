@@ -304,3 +304,5 @@ app.use(cors());
 * [인코딩 vs 디코딩 정확하게 이해하기](https://codingpractices.tistory.com/entry/%EC%9D%B8%EC%BD%94%EB%94%A9-vs-%EB%94%94%EC%BD%94%EB%94%A9-%EC%A0%95%ED%99%95%ED%95%98%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 * [JSON.parse](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global\_Objects/JSON/parse)
 * [async와 await](https://ko.javascript.info/async-await)
+* [fetch 사용 시 유의사항](https://wooooooak.github.io/javascript/2018/11/25/fetch\&json\(\)/)
+
