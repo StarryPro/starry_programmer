@@ -223,14 +223,35 @@ touch .vscode/settings.json
 }
 ```
 
-### 8. React를 설치합니다
+### 8. `prettier`를 설치합니다.
+
+```bash
+npm install -D prettier
+```
+
+[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)도 추가 설치합니다.
+eslint-config-prettier의 역할은 eslint와 중복되는 규칙을 prettier 쪽에서 알아서 꺼주는 역할을 합니다.
+
+```bash
+npm install --save-dev eslint-config-prettier
+```
+
+- `.eslintrc.js` 파일에 prettier를 사용할 수 있도록 수정합니다.
+
+```json
+{
+  "extends": ["some-other-config-you-use", "prettier"]
+}
+```
+
+### 9. React를 설치합니다
 
 ```bash
 npm i react react-dom
 npm i -D @types/react @types/react-dom
 ```
 
-### 9. 테스팅 도구를 설치합니다
+### 10. 테스팅 도구를 설치합니다
 
 ```bash
 npm i -D jest @types/jest @swc/core @swc/jest \
@@ -252,7 +273,7 @@ npm i -D jest @types/jest @swc/core @swc/jest
 npm i -D jest-environment-jsdom @testing-library/react @testing-library/jest-dom
 ```
 
-### 10. `jest.config.js` 파일을 작성합니다
+### 11. `jest.config.js` 파일을 작성합니다
 
 [jest.config.js 파일](https://github.com/ahastudio/CodingLife/blob/main/20220726/react/jest.config.js)을 작성해서 테스트 시 `SWC`를 사용할 수 있게 합니다. `setupFilesAfterEnv`의 내용 중 `./jest.setup`은 삭제합니다.
 
@@ -296,7 +317,7 @@ module.exports = {
 };
 ```
 
-### 11. `Parcel`을 설치합니다
+### 12. `Parcel`을 설치합니다
 
 ```bash
 npm i -D parcel
@@ -326,7 +347,7 @@ npm i -D parcel
 }
 ```
 
-### 12. `package.json` 파일의 scripts 내용을 수정합니다.
+### 13. `package.json` 파일의 scripts 내용을 수정합니다.
 
 아래의 [scripts](https://github.com/ahastudio/CodingLife/blob/main/20220726/react/package.json) 내용을 참고하여 수정합니다.
 
@@ -347,7 +368,7 @@ npm i -D parcel
 또한 위 상태에서 `npm run start`를 하면 에러가 발생하는데, \
 현재 `packsge.json`의 `"main" : "index.js"`를 `"source" : "index.html"`로 수정하면 에러를 해결할 수 있습니다. 원래 node의 경우 실행 파일을 `"main"` 으로 잡아주는데, 해당 파일에서는 웹 서버를 띄울 것이기 때문에 `"source"`로 변경했습니다.
 
-### 13. React 기본 코드를 작성합니다
+### 14. React 기본 코드를 작성합니다
 
 1. `index.html` 파일 작성
 
@@ -437,4 +458,4 @@ npm init -y
 - [모듈화와 npm(node package manager)](https://poiemaweb.com/nodejs-npm)
 - &#x20;[Node.js의 module loading system](https://poiemaweb.com/nodejs-module)&#x20;
 - [npm 과 npx 차이](https://hanamon.kr/npm-npx-%EC%B0%A8%EC%9D%B4/)
-- [Eslint, Prettier 설정하기](https://helloinyong.tistory.com/325)
+- [ESLint, Prettier Setting, 헤매지 말고 정확히 알고 설정하자.](https://helloinyong.tistory.com/325)
