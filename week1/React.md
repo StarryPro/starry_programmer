@@ -14,8 +14,6 @@ React에 대한 내용은 아래 문서들을 통해 주기적인 학습이 필�
 
 ### 렌더링
 
-**렌더링**이란 현재 props 및 상태를 기반으로 리액트가 컴포넌트에게 UI 영역이 어떻게 보이길 원하는지 설명을 요청하는 프로세스를 의미합니다.
-
 * [createRoot Beta 문서](https://beta.reactjs.org/reference/react-dom/client/createRoot)
 * [createRoot 공식 문서](https://ko.reactjs.org/docs/react-dom-client.html#createroot)
 * [Updating a root component](https://beta.reactjs.org/reference/react-dom/client/createRoot#updating-a-root-component)
