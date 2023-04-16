@@ -4,7 +4,7 @@
 
 React Testing Library는 React 컴포넌트를 사용자 입장에 가깝게 테스트할 수 있는 도구입니다.
 
-- 기존 TextField.tsx
+* 기존 TextField.tsx
 
 ```typescript
 export default function TextField({
@@ -31,9 +31,9 @@ export default function TextField({
 ```
 
 테스트 코드, 즉 컴포넌트를 사용하는 코드를 작성하면서 해당 컴포넌트의 인터페이스를 점검할 수 있습니다.\
-기존 컴포넌트에는 label이 빠져있었고, text 같이 범용적인 표현을 사용하지 않은 문제가 있었습니다.\
+기존 컴포넌트에는 label이 빠져있었고, text 같이 범용적인 표현을 사용하지 않은 문제가 있었습니다.
 
-- TextField.test.tsx
+* TextField.test.tsx
 
 ```typescript
 import { render, screen } from '@testing-library/react';
@@ -62,7 +62,7 @@ test('TextField', () => {
 });
 ```
 
-- 테스트 후 개선된 TextField.tsx
+* 테스트 후 개선된 TextField.tsx
 
 ```typescript
 export default function TextField({
@@ -94,7 +94,7 @@ export default function TextField({
 
 ### BDD 스타일 테스트 코드
 
-반복되는 코드를 Extract Function하고, fireEvent 등을 통해 인터랙션만 검증합니다.
+반복되는 코드를 Extract Function하고,[ fireEvent](https://testing-library.com/docs/dom-testing-library/api-events/) 등을 통해 인터랙션만 검증합니다.
 
 ```typescript
 import { render, screen, fireEvent } from '@testing-library/react';
@@ -167,7 +167,7 @@ test('App', () => {
 
 중복 발생되는 무언가(행위)를 고정시켜 한곳에 관리하도록 하겠다는 개념입니다.
 
-- fixtures/index.ts
+* fixtures/index.ts
 
 ```typescript
 import products from './producsts';
@@ -175,7 +175,7 @@ import products from './producsts';
 export default { products };
 ```
 
-- fixture/products.ts
+* fixture/products.ts
 
 ```typescript
 const products = [
@@ -189,3 +189,10 @@ const products = [
 
 export default products;
 ```
+
+### 참고 자료
+
+* [Jest에서 Mock을 정리하는 방법](https://haeguri.github.io/2020/12/21/clean-up-jest-mock/)
+* [\[Jest\]jest.fn(), jest.spyOn() 함수모킹](https://www.daleseo.com/jest-fn-spy-on/)
+* [유저 이벤트 테스트](https://www.daleseo.com/testing-library-user-agent/)([https://www.daleseo.com/testing-library-user-agent/](https://www.daleseo.com/testing-library-user-agent/))
+* [React Testing Library 사용법 ](https://www.daleseo.com/testing-library-user-agent/)
