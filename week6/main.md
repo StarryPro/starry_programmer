@@ -1,4 +1,8 @@
-# 6주차 External Store
+---
+description: External Store
+---
+
+# External Store
 
 ## 학습 목표
 
